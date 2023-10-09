@@ -16,12 +16,13 @@ var app = express();
 
 // MongoDB 연결
 mongoose.connect(
-  `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PW}@${MONGODB_HOST}/${MONGODB_DBNAME}`,
+  `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PW}@${process.env.MONGODB_HOST}/${process.env.MONGODB_DBNAME}`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
 );
+
 
 mongoose.connection.on('connected', () => {
 console.log('Connected to MongoDB');
